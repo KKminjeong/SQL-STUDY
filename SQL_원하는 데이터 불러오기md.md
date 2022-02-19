@@ -18,7 +18,7 @@
 
   ```
   SELECT *
-  FROM Customers;
+  FROM customers;
   ```
 
   * FROM : 어떤 테이블에서 원하는 데이터를 가지고 올 것인지를 보여주는 것
@@ -28,15 +28,15 @@
 * CustomerName 컬럼만 보고 싶을 때
 
   ```
-  SELECT CustomerName
-  from Customers;
+  SELECT customerName
+  from customers;
   ```
 
 * 다수의 컬럼을 보고 싶을 때
 
   ```
-  SELECT CustomerName, Address
-  from Customers;
+  SELECT customerName, address
+  from customers;
   ```
 
   * SELECT 컬럼명, 컬럼명, ... : SELECT 다음에 컬럼명을 추가하여 다수의 원하는 컬럼을 볼 수 있음
@@ -44,11 +44,11 @@
 * 데이터 양이 많을 때 원하는 데이터를 가져오는 팁
 
   ```
-  SELECT CustomerName, Address
-  from Customers
+  SELECT customerName, Address
+  from customers
   LIMIT 10
   ```
 
-  * 데이터를 10개만 가져오는 방식 -> 데이터 구조를 빠르게 파악하여 SQL문 작성
+  * LIMIT 예약어를 활용하여 데이터를 10개만 가져오는 방법도 존재  -> 데이터 구조를 빠르게 파악하여 SQL문 작성
 
   
