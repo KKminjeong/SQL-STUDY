@@ -25,8 +25,14 @@ ORDER BY customerID DESC
 ```
 
 * DESC : 내림차순 (큰 수 부터 정렬) / ASC : 오름차순 (작은 수 부터 정렬)
+
 * DESC나 ASC를 적지 않으면, default로 ASC 정렬이 됨.
+
 * WHERE 절을 추가하고 싶다면 순서는 **SELECT -> FROM -> WHERE -> ORDER BY 순으로 작성**한다.
+
+  
+
+------
 
 
 
@@ -36,7 +42,7 @@ ORDER BY customerID DESC
 
   * SELECT LEFT("20140323", 4)  -> 2014
 
-* **RIGHT **(컬럼명 또는 문자열, 문자열의 길이)
+* **RIGHT** (컬럼명 또는 문자열, 문자열의 길이)
 
   * SELECT RIGHT("20140323", 4) -> 0323
 
@@ -47,6 +53,10 @@ ORDER BY customerID DESC
   * SUBSTR("20140323", 5) -> 0323
 
     
+
+------
+
+
 
 #### MySQL 소수점 처리
 
@@ -63,6 +73,10 @@ ORDER BY customerID DESC
   * ROUND(5.556901, 4)  -> 5.5569
 
     
+
+------
+
+
 
 #### ORDER BY 응용
 
@@ -83,6 +97,8 @@ FROM products
 ORDER BY price ASC
 LIMIT 3         # 가격 싼 순으로 하위 3개 뽑기
 ```
+
+------
 
 
 
