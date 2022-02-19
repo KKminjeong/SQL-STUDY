@@ -108,6 +108,7 @@ WHERE customerID IS NULL
 * IS NULL :  테이블 내에 데이터가 입력되지 않는 부분을 검색할 때 쓰는 예약어
 
 * WHERE customerID  = NULL 이렇게 하면 검색 안됨. 비어있는 값인 null은 조금 특별한 값이므로 일반적인 비교연산자로 검색하면 안됨.
+* NULL (= NaN) : 숫자도 아니고 문자도 아니다. 비어있는 값!
 
 
 
@@ -128,9 +129,74 @@ WHERE discount LIKE '50\%'
 ```
 
 * 50% 할인율을 가지는 고객을 찾아라
-* \ : 이스케이프 문자 (백슬래시)
+* \ : 이스케이프 문자 (백슬래시) 예약어로부터 탈출한다 (Mysql)
 * 50%에서 %를 그대로 쓰면  %는 예약어이므로 %앞에 \ 를 써주면 된다.
 
+```
+SELECT *
+FROM customers
+WHERE discount LIKE '_ _\%' 
+```
+
+* 두 자릿수 디스카운트를 받는 사람을 찾아 보고 싶다
+* _ _ : 어떤 숫자가 들어가도 상관없다
 
 
-* NULL (= NaN) : 숫자도 아니고 문자도 아니다. 비어있는 값!
+
+### 예제로 알아보기
+
+#### DISTINCT
+
+* 해커랭크 문제 1 ) 
+
+  Query the list of *CITY* names starting with vowels (i.e., `a`, `e`, `i`, `o`, or `u`) from **STATION**. Your result *cannot* contain duplicates.
+
+  **Input Format**
+
+  The **STATION** table is described as follows:
+
+  ![Station.jpg](https://s3.amazonaws.com/hr-challenge-images/9336/1449345840-5f0a551030-Station.jpg)
+
+  where *LAT_N* is the northern latitude and *LONG_W* is the western longitude.
+
+```
+SELECT DISTINCT city
+FROM station
+WHERE city LIKE'a%' 
+OR city LIKE'e%' 
+OR city LIKE'i%' 
+OR city LIKE'o%' 
+OR city LIKE'u%'
+```
+
+* 중복된 city가 나오지 않게 하려면 **DISTINCT 예약어** 활용!
+
+  
+
+* 해커랭크 문제 2 )
+
+Query the list of *CITY* names from **STATION** that *do not start* with vowels and *do not end* with vowels. Your result cannot contain duplicates.
+
+**Input Format**
+
+The **STATION** table is described as follows:
+
+![Station.jpg](https://s3.amazonaws.com/hr-challenge-images/9336/1449345840-5f0a551030-Station.jpg)
+
+where *LAT_N* is the northern latitude and *LONG_W* is the western longitude.
+
+```
+SELECT DISTINCT city
+FROM station
+WHERE city NOT LIKE 'a%' 
+AND city NOT LIKE 'e%' 
+AND city NOT LIKE 'i%' 
+AND city NOT LIKE 'o%'
+AND city NOT LIKE 'u%'
+AND city NOT LIKE '%a'
+AND city NOT LIKE '%e'
+AND city NOT LIKE '%i'
+AND city NOT LIKE '%o'
+AND city NOT LIKE '%u'
+```
+
